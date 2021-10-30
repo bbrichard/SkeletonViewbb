@@ -19,13 +19,13 @@ if danger.github.pullRequest.title.contains("WIP") {
 }
 
 // Warn, asking to update all README files if only English README are updated
-let enReameModified = danger.git.modifiedFiles.contains { $0.contains("README.md") }
-let zhReameModified = danger.git.modifiedFiles.contains { $0.contains("README_zh.md") }
-let koReameModified = danger.git.modifiedFiles.contains { $0.contains("README_ko.md") }
-let ptBrReameModified = danger.git.modifiedFiles.contains { $0.contains("README_pt-br.md") }
-let otherLanguagesReadmeHaveBeenModified = zhReameModified && koReameModified && ptBrReameModified
+let enReadmeModified = danger.git.modifiedFiles.contains { $0.contains("README.md") }
+let zhReadmeModified = danger.git.modifiedFiles.contains { $0.contains("README_zh.md") }
+let koReadmeModified = danger.git.modifiedFiles.contains { $0.contains("README_ko.md") }
+let ptBrReafmeModified = danger.git.modifiedFiles.contains { $0.contains("README_pt-br.md") }
+let otherLanguagesReadmeHaveBeenModified = zhReadmeModified && koReadmeModified && ptBrReadmeModified
 
-if (enReameModified && !otherLanguagesReadmeHaveBeenModified) {
+if (enReadmeModified && !otherLanguagesReadmeHaveBeenModified) {
     warn("Consider **also** updating the README for other languages.")
 }
 
